@@ -1,0 +1,58 @@
+---
+title: "Data Science Capstone: Final project submission"
+author: "G S Lopes"
+date: "11/6/2020"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## App: The Crystal Ball
+
+Hi! Welcome to this very simple App called "The Crystal Ball".
+
+The Crystal Ball uses Natural Language Processing (NLP) techniques to predict the next word of a sentence.
+
+## Data: Twitter, Blogs, and News
+
+The prediction model used in The Crystal Ball uses text from Twitter, Blogs, and News.
+
+This way, the model can accurately predict the next word of sentences written in different contexts.
+
+```{r, eval = FALSE, echo = TRUE}
+# https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip
+twitter <- readLines(file("en_US.twitter.txt", "r"))
+blogs <- readLines(file("en_US.blogs.txt", "r"))
+news <- readLines(file("en_US.news.txt", "r"))
+```
+
+## Prediction model: Bi-, Tri-, Quad- grams
+
+N-grams are defined as "a contiguous sequence of n items from a given sample of text or speech." (Wikipedia)
+
+The Crystal Ball uses Bi-, Tri-, and Quad- grams in an attempt to make the best prediction for you.
+
+```{r, eval = FALSE, echo = TRUE}
+# Excerpt of the function for Quad-grams (3 words + 1 predicted word)
+... if (length(cw) >= 3) {cw <- tail(cw,3) #Select last 3 words of customer's sentence
+... head(quadgram[quadgram$unigram == cw[1] & quadgram$bigram == cw[2] & quadgram$trigram == cw[3], 4], 1) #Display the 3-word sentence
+```
+
+## Instructions: The Crystal Ball
+
+Now, go to [The Crystal Ball](https://guislopes0.shinyapps.io/gsl-2/) and enjoy!
+
+Type a short sentence and see what it predicts.
+
+For example, try typing "How are", and it will predict "How are you".
+
+## Conclusion
+
+For more details, please visit my [GitHub repository for Coursera](https://github.com/guislopes/Coursera_Capstone)
+
+I hope you enjoy!
+
+Thank you!
+
